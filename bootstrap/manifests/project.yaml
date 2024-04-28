@@ -1,0 +1,26 @@
+---
+# docs:
+#   - https://argo-cd.readthedocs.io/en/stable/user-guide/projects/
+#   - https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/project.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: mgm
+  namespace: argo-cd
+spec:
+  description: Management apps on Kubernetes
+  sourceRepos:
+    - '*'
+  destinations:
+    - namespace: 'argo-cd'
+      name: 'in-cluster'
+      server: 'https://kubernetes.default.svc'
+    - namespace: 'mgm'
+      name: 'in-cluster'
+      server: 'https://kubernetes.default.svc'
+    - namespace: 'kube-system'
+      name: 'in-cluster'
+      server: 'https://kubernetes.default.svc'
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
