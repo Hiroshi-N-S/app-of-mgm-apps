@@ -19,3 +19,4 @@ sh app-of-mgm-apps/bootstrap/init.sh
 ## References
 
 - [Argo CD](https://argo-cd.readthedocs.io/en/stable/)
+- [Velero](https://velero.io/docs/)
